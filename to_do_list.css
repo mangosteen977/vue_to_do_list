@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap");
+/* font-family: 'Noto Sans KR', sans-serif; (100, 400, 700, 900) */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 12px;
+}
+
+.todobox {
+  width: 500px;
+  height: auto;
+  background-color: #eee;
+  -webkit-box-shadow: 5px 5px 3px 5px rgba(0, 0, 0, 0.4);
+          box-shadow: 5px 5px 3px 5px rgba(0, 0, 0, 0.4);
+  padding: 50px 0;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.todobox > p {
+  width: 100%;
+  height: 30px;
+  background-color: none;
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 30px;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.todobox > .btns {
+  width: 100%;
+  height: auto;
+  background-color: none;
+  padding: 10px;
+}
+
+.todobox > .btns > button {
+  width: 60px;
+  height: 25px;
+  background-color: black;
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: unset;
+  color: white;
+  text-align: "";
+  font-weight: unset;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+}
+
+.todobox > .btns > button:hover {
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.todobox > .btns > .alldone {
+  width: 100px;
+  float: right;
+}
+
+.todobox > .new_todo {
+  width: 100%;
+  height: auto;
+  background-color: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.todobox > .new_todo > input[type="text"] {
+  width: 400px;
+  height: 40px;
+  background-color: none;
+  border-radius: 5px 0 0 5px;
+  text-indent: 5px;
+}
+
+.todobox > .new_todo > button {
+  width: 80px;
+  height: 40px;
+  background-color: black;
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: unset;
+  color: white;
+  text-align: "";
+  font-weight: unset;
+  font-size: 12px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+}
+
+.todobox > .new_todo > button:hover {
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.todobox > .dotolist {
+  width: 100%;
+  height: auto;
+  background-color: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.todobox > .dotolist > li {
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.todobox > .dotolist > li > .check {
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-color: none;
+  cursor: pointer;
+  background-image: url(./img/check1.svg);
+  background-size: cover;
+}
+
+.todobox > .dotolist > li > label {
+  width: 375px;
+  height: 40px;
+  background-color: none;
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 40px;
+  color: unset;
+  text-align: left;
+  font-weight: unset;
+  font-size: 13px;
+  text-indent: 10px;
+}
+
+.todobox > .dotolist > li > button {
+  width: 80px;
+  height: 25px;
+  background-color: black;
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: unset;
+  color: white;
+  text-align: "";
+  font-weight: unset;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+}
+
+.todobox > .dotolist > li > button:hover {
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.todobox > .dotolist > .done > .check {
+  background-image: url(./img/check2.svg);
+}
+
+.todobox > .dotolist > .done > label {
+  text-decoration: line-through;
+  color: #aaa;
+}
+/*# sourceMappingURL=to_do_list.css.map */

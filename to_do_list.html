@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="Ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+    <title> TO_DO_LIST </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <link rel="stylesheet" type="text/css" href="./to_do_list.css">
+</head>
+
+<body>
+    <section class="todobox" id="todobox">
+        <p>TO DO LIST</p>
+        <div class="btns">
+            <button type="button" @click="all = true; list = 'all'">ALL</button>
+            <button type="button" @click="list_view('done')">DONE</button>
+            <button type="button" @click="list_view('yet')">YET</button>
+        </div>
+        <div class="new_todo">
+            <input type="text" placeholder="add a new To Do List" class="new_list" v-model="todo_text"
+                v-on:keyup.enter="add_todos" ref="f_text">
+            <button type="button" v-on:click="add_todos">ADD</button>
+        </div>
+        <!-- all -->
+        <ul class="dotolist" id="dotolist" v-if="all">
+            <li v-for="lis in arr" :class="lis[1]">
+                <span class="check" @click="imdone(lis[2])"></span>
+                <label>{{lis[0]}}</label>
+                <button type="button" @click="del_todo(lis[2])">DEL</button>
+            </li>
+        </ul>
+        <!-- else -->
+        <ul class="dotolist" id="dotolist" v-else>
+            <li v-for="lis2 in arr2" :class="lis2[1]">
+                <span class="check" @click="imdone(lis2[2])"></span>
+                <label>{{lis2[0]}}</label>
+                <button type="button" @click="del_todo(lis2[2])">DEL</button>
+            </li>
+        </ul>
+        <div class="btns">
+            <button type="button" @click="del_all" class="alldone">Delete All</button>
+            <span style="display: block; clear:both;"></span>
+        </div>
+    </section>
+</body>
+<script src="./to_do_list.js"></script>
+
+</html>
