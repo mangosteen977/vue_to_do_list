@@ -2,21 +2,22 @@ let todos = new Vue({
     el:"#todobox",
     data:{
         arr:[],
-        arr2:[],
         num_id:0,
         todo_text:"",
-        all:true,
-        list:"all"
+        list:"all",
+        del_btn:false,
+        refresh:false
     },
     watch:{
-        arr:function(val){
-            if(this.list!="all"){
-                todos.list_view(this.list);
+        refresh:function(){
+            if(this.refresh){
+                this.refresh = false;
             }
         }
     },
     methods:{
         add_todos(){
+            this.del_btn = true;
             if(!this.todo_text){
                 alert("please add To Do List");
                 this.$refs.f_text.focus();
@@ -28,43 +29,36 @@ let todos = new Vue({
             }
         },
         imdone(nid){
-            this.arr.filter(function(array,node,all){
-                let ser = array.indexOf(nid);
-                if(ser!=-1){
-                    if(array[1] == "yet"){
-                        document.getElementById("dotolist").childNodes[node].className = "done";
-                        return array[1] = "done";
+            for(let i in this.arr){
+                if(this.arr[i][2]==nid){
+                    if(this.arr[i][1] == "yet"){
+                        document.getElementById("dotolist").childNodes[i].className = "done";
+                        this.arr[i][1] = "done";
                         
                     }
                     else{
-                        document.getElementById("dotolist").childNodes[node].className = "yet";
-                        return array[1] = "yet";
+                        document.getElementById("dotolist").childNodes[i].className = "yet";
+                        this.arr[i][1] = "yet";
                     }
                 }
-            });
+            }
+            this.refresh = true;
         },
         del_todo(nid){
-            this.arr.filter(function(array,node,all){
-                let ser = array.indexOf(nid);
-                if(ser!=-1){
-                   todos.arr.splice(node,1);
+            for(let i in this.arr){
+                if(this.arr[i][2] == nid){
+                    todos.arr.splice(i,1);
                 }
-            });
+            }
+            if(this.arr.length==0){
+                this.del_btn = false;
+            }
         },
         del_all(){
-            this.arr=[];
-            this.arr2=[];
-        },
-        list_view(w){
-            this.list = w;
-            this.all = false;
-            this.arr2 = [];
-            this.arr.filter(function(array,node,all){
-                let ser = array.indexOf(w);
-                if(ser!=-1){
-                    todos.arr2.push(array);
-                }
-            });
+            if(confirm("Do you REALLY want to delete ALL?")){
+                this.del_btn = false;
+                this.arr=[];
+            }
         }
     }
 });
