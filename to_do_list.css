@@ -158,7 +158,8 @@ body {
 
 .todobox > .dotolist > li {
   width: 100%;
-  height: 40px;
+  height: auto;
+  min-height: 40px;
   background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -196,15 +197,14 @@ body {
 
 .todobox > .dotolist > li > label {
   width: 375px;
-  height: 40px;
+  height: auto;
   background-color: none;
   font-family: "Noto Sans KR", sans-serif;
-  line-height: 40px;
   color: unset;
   text-align: left;
   font-weight: unset;
   font-size: 13px;
-  text-indent: 10px;
+  padding: 5px 10px;
 }
 
 .todobox > .dotolist > li > button {

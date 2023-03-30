@@ -22,7 +22,7 @@
                 v-on:keyup.enter="add_todos" ref="f_text">
             <button type="button" v-on:click="add_todos">ADD</button>
         </div>
-        <!-- all -->
+        <!-- to do list 1 -->
         <ul class="dotolist" id="dotolist" v-if="refresh">
             <li v-for="lis in arr" :class="lis[1]" v-show="(lis[1] == list) || list == 'all'">
                 <span class="check" @click="imdone(lis[2])"></span>
@@ -30,6 +30,7 @@
                 <button type="button" @click="del_todo(lis[2])">DEL</button>
             </li>
         </ul>
+        <!-- to do list 2 -->
         <ul class="dotolist" id="dotolist" v-else>
             <li v-for="lis in arr" :class="lis[1]" v-show="(lis[1] == list) || list == 'all'">
                 <span class="check" @click="imdone(lis[2])"></span>

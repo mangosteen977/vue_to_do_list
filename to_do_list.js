@@ -6,12 +6,33 @@ let todos = new Vue({
         todo_text:"",
         list:"all",
         del_btn:false,
-        refresh:false
+        refresh:false,
+        saved_data:false
+    },
+    created(){
+        let save_data = localStorage.getItem('vue_to_do_list_data');
+        if(save_data!=null){
+            this.arr = JSON.parse(save_data);
+            this.saved_data = true;
+            this.num_id = this.arr[this.arr.length-1][2]+1;
+            this.del_btn =true;
+        }
+    },
+    updated(){
+
     },
     watch:{
         refresh:function(){
             if(this.refresh){
                 this.refresh = false;
+            }
+        },
+        arr:function(){
+            if(this.arr.length==0){
+                localStorage.removeItem('vue_to_do_list_data')
+            }
+            else{
+                todos.save_data();
             }
         }
     },
@@ -28,6 +49,10 @@ let todos = new Vue({
                 this.num_id++;
             }
         },
+        save_data(){
+            localStorage.setItem('vue_to_do_list_data',JSON.stringify(this.arr));
+            this.saved_data = true;
+        },
         imdone(nid){
             for(let i in this.arr){
                 if(this.arr[i][2]==nid){
@@ -40,6 +65,7 @@ let todos = new Vue({
                         document.getElementById("dotolist").childNodes[i].className = "yet";
                         this.arr[i][1] = "yet";
                     }
+                    todos.save_data();
                 }
             }
             this.refresh = true;

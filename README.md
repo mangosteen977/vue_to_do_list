@@ -22,3 +22,10 @@ yet/done 필터링 보기 상태에서 yet/done status 수정 시 내용이 바�
 delete all 버튼을 to do list가 있을 때만 보이도록 수정하였습니다.
 to do list 삭제 및 status(yet/done) 수정 로직을 업데이트 하였습니다.
 ```
+
+### 3. ToDoList@1.2.0
+
+```
+localStorage에 데이터를 저장할 수 있도록 수정하였습니다.
+길이가 긴 항목의 표시를 위해 to do list css를 수정하였습니다.
+```
